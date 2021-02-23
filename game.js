@@ -304,6 +304,7 @@ class multiplication_table{
 
 let table = new multiplication_table(10,10,1);
 let questions = table.getRandQuestions(10);
+
 console.log(questions);
 
 function setMCQuestionHTML(n){
@@ -363,6 +364,7 @@ function answerMCQuestion(n){
         alert.style.opacity = "100%";
     }
 }
+
 
 initSetup();
 setup();
