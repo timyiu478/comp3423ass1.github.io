@@ -12,7 +12,7 @@ function playSelectSound(){
 
 
 function goHomepage(){
-    window.open('game.html', '_self'); 
+    window.open('index.html', '_self'); 
 }
 
 
