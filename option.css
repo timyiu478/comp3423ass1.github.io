@@ -1,0 +1,33 @@
+#option {
+    margin: 5px 0 0 15px;
+}
+#option button{
+    margin: 10px;
+    min-width: 45px;
+    opacity: 65%;
+}
+
+
+#option button:hover{
+    opacity: 100%;
+}
+
+#option button span{
+    display: none;
+
+}
+#option button:hover,#option button:hover .lang{
+    display: inline-block;
+}
+
+#option button:hover,#option button:active .lang{
+    display: inline-block;
+}
+
+.ch{
+    display: none;
+}
+
+.ch:hover{
+    display: none;
+}

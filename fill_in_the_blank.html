@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <title>Multiplication Game</title>
+        <meta charset="utf-8">
+        <link href="option.css" rel="stylesheet">
+        <link href="game.css" rel="stylesheet">
+        <link href="fontawesome-free-5.15.2-web/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+        <div id="option">
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#goHomepageModal" onclick="playSelectSound()" accesskey="h"><i class="fas fa-home"></i><span class="eng lang">&nbsp;Home Page</span><span class="ch">&nbsp;主頁</span></button>
+          <button type="button" class="btn btn-info" id="changeGamemodeButton"  accesskey="m" disabled style="opacity: 30%;"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Fill in the blank</span><span class="ch">&nbsp;填空</span></button>
+          <button type="button" class="btn btn-info" id="toggleSoundButton" onclick="toggleSound()" accesskey="s"><i class="fas fa-volume-down"></i><span class="eng lang">&nbsp;Sound</span><span class="ch">&nbsp;音效</span></button>
+          <button type="button" class="btn btn-info" id="setLanguageButton" onclick="setLanguage()" id="setLanguageButton" accesskey="l"><i class="fas fa-language"></i><span class="eng lang">&nbsp;English</span><span class="ch">&nbsp;中文</span></button>      
+        </div>
+         
+        <div id="content">
+          
+            <div class="modal fade" id="goHomepageModal" tabindex="-1" aria-labelledby="goHomepageModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="goHomepageModalLabel"><span class="eng">Go homepage</span><span class="ch">轉到首頁</span></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
+                            </div>
+                        <div class="modal-body">
+                            <span class="eng">Are you really want to go homepage?</span><span class="ch">你真的要轉到首頁嗎?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="playSelectSound()"><span class="eng">No</span><span class="ch">否</span></button>
+                            <button type="button" class="btn btn-warning" onclick="goHomepage()"><span class="eng">Yes</span><span class="ch">是</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+        2
+   
+        <script src="fill_in_the_blank.js"></script>
+        <script src="game.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <audio id="select_click" src="select_click.wav"></audio>    
+    </body>
+
+    
+</html>
