@@ -304,7 +304,6 @@ class multiplication_table{
 
 let table = new multiplication_table(10,10,1);
 let questions = table.getRandQuestions(10);
-
 console.log(questions);
 
 function setMCQuestionHTML(n){
@@ -365,6 +364,27 @@ function answerMCQuestion(n){
     }
 }
 
+function keyevent(){
+    console.log(window.event.key);
+    if(window.event.key == 1){
+        answerMCQuestion(0);
+    }
+    if(window.event.key == 2){
+        answerMCQuestion(1);
+    }
+    if(window.event.key == 3){
+        answerMCQuestion(2);
+    }
+    if(window.event.key == 4){
+        answerMCQuestion(3);
+    }
+    if(window.event.key == "Enter"){
+        console.log(document.getElementById("alert_wording_eng").innerHTML);
+        if(document.getElementById("alert_wording_eng").innerHTML=='Finish!&nbsp;&nbsp;&nbsp;<button class="btn btn-outline-success" onclick="playAgain()"><i class="fas fa-redo"></i>&nbsp;Play Again</button>'){
+            playAgain();
+        }
+    }
+}
 
 initSetup();
 setup();
