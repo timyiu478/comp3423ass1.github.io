@@ -37,7 +37,7 @@ function submit_blank(){
     let i;
 
     for(i=0;i<n1.length;i++){
-        if(input[i].value==""||input[i].value==null){
+        if(input[i].value==null){
             input[i].value = "";
         }
         answer = table.getAnswer(n1[i].innerHTML,n2[i].innerHTML);
@@ -70,27 +70,7 @@ function playAgain_blank(){
 }
 
 function keyevent_blank(){
-    let btn = document.getElementsByClassName("user_input");
     if(window.event.key == "Enter"){
         submit_blank();
     }
-    let i;
-    for(i=0;i<btn.length-1;i++){
-        if(window.event.key == (i+1)){
-            if(document.activeElement != btn[i]){
-                playSelectSound();
-                btn[i].value = "";
-                btn[i].focus();
-            }
-        }
-    }
-    if(window.event.key == "t"){
-        if(document.activeElement != btn[9]){
-            playSelectSound();
-            btn[9].value = "";
-            btn[9].focus();
-        }
-    }
-
-
 }

@@ -14,7 +14,7 @@
 
         <div id="option">
           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#goHomepageModal" onclick="playSelectSound()" accesskey="h"><i class="fas fa-home"></i><span class="eng lang">&nbsp;Home Page</span><span class="ch">&nbsp;主頁</span></button>
-          <button type="button" class="btn btn-info" id="changeGamemodeButton" accesskey="m" onclick="changeGamemode();startGame();"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Multiple Choice</span><span class="ch">&nbsp;多項選擇</span></button>
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#gamemodeModal" onclick="playSelectSound()" id="changeGamemodeButton"  accesskey="m"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Fill in the blank</span><span class="ch">&nbsp;填空</span></button>
           <button type="button" class="btn btn-info" id="toggleSoundButton" onclick="toggleSound()" accesskey="s"><i class="fas fa-volume-down"></i><span class="eng lang">&nbsp;Sound</span><span class="ch">&nbsp;音效</span></button>
           <button type="button" class="btn btn-info" id="setLanguageButton" onclick="setLanguage()" id="setLanguageButton" accesskey="l"><i class="fas fa-language"></i><span class="eng lang">&nbsp;English</span><span class="ch">&nbsp;中文</span></button>      
           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#aboutModal" id="about"  onclick="playSelectSound()" accesskey="i"><i class="fas fa-info"></i><span class="eng lang">&nbsp;About</span><span class="ch">&nbsp;關於</span></button>
@@ -22,7 +22,7 @@
          
         <div id="content">
 
-            <div class="mx-auto col-6" style="text-align: center;">
+            <div class="mx-auto col-7" style="text-align: center;">
                 <h1 class="display-6"><span class="eng">Question </span><span class="ch">問題 </span>:&nbsp;<span id="question_number" style="width: 20px; padding: 5px;">1</span></h1>
 
                 <h1 class="display-1 shadow bg-dark text-light rounded" style="padding: 5%;"><span id="n1"></span> x <span id="n2"></span></h1>
@@ -36,23 +36,40 @@
             </div>
 
 
-            <div class="modal fade" id="goHomepageModal" tabindex="-1" aria-labelledby="goHomepageModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="goHomepageModalLabel"><span class="eng">Go homepage</span><span class="ch">轉到首頁</span></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
-                            </div>
-                        <div class="modal-body">
-                            <span class="eng">Are you really want to go homepage?<br>Your game progress will be lost.</span><span class="ch">你真的要轉到首頁嗎?<br>您的遊戲進度將會丟失。</span>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="playSelectSound()"><span class="eng">No</span><span class="ch">否</span></button>
-                            <button type="button" class="btn btn-warning" onclick="goHomepage()"><span class="eng">Yes</span><span class="ch">是</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="modal fade" id="gamemodeModal" tabindex="-1" aria-labelledby="gamemodeModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="gamemodeModalLabel"><span class="eng">Change Gamemode</span><span class="ch">改變遊戲模式</span></h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
+                          </div>
+                      <div class="modal-body">
+                          <span class="eng">Are you really want to change gamemode?<br><br>Your game progress will be lost.</span><span class="ch">你真的要改變遊戲模式嗎?<br>您的遊戲進度將會丟失。</span>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="playSelectSound()"><span class="eng">No</span><span class="ch">否</span></button>
+                          <button type="button" class="btn btn-warning" onclick="changeGamemode();startGame();"><span class="eng">Yes</span><span class="ch">是</span></button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="modal fade" id="goHomepageModal" tabindex="-1" aria-labelledby="goHomepageModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="goHomepageModalLabel"><span class="eng">Go homepage</span><span class="ch">轉到首頁</span></h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
+                          </div>
+                      <div class="modal-body">
+                          <span class="eng">Are you really want to go homepage?<br>Your game progress will be lost.</span><span class="ch">你真的要轉到首頁嗎?<br>您的遊戲進度將會丟失。</span>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="playSelectSound()"><span class="eng">No</span><span class="ch">否</span></button>
+                          <button type="button" class="btn btn-warning" onclick="goHomepage()"><span class="eng">Yes</span><span class="ch">是</span></button>
+                      </div>
+                  </div>
+              </div>
+          </div>
             <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">

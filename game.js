@@ -4,7 +4,11 @@ function playSelectSound(){
     }
     else{
         let audio = document.getElementById("select_click");
-        audio.play();
+        if(audio!=null){
+            audio.currentTime = 0;
+            audio.play();
+        }
+
     }
 
 }
