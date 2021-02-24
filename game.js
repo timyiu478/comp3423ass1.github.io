@@ -25,6 +25,7 @@ function initSetup(){
     if(getSetting()==null){
         localStorage.setItem("setting",JSON.stringify([1,1,0]));
     }
+    
 }
 
 function setup(){
@@ -35,6 +36,7 @@ function setup(){
     if(setup[0]==1){
         childNodes1[1].innerHTML = "&nbsp;Multiple Choice";
         childNodes1[2].innerHTML = "&nbsp;多項選擇";
+        setMCQuestionHTML(0);
     }
     else if(setup[0]==2){
         childNodes1[1].innerHTML = "&nbsp;Fill in the blank";
@@ -70,7 +72,7 @@ function setup(){
     if(setup[2]==1){
         let i;
         for(i=0;i<ch.length;i++){
-            if(i>3){
+            if(i>4){
                 ch[i].style.display = "inline-block";
                 eng[i].style.display = "none";
             }
@@ -83,7 +85,7 @@ function setup(){
     else{
         let i;
         for(i=0;i<ch.length;i++){
-            if(i>3){
+            if(i>4){
                 eng[i].style.display = "inline-block";
                 ch[i].style.display = "none";
             }
@@ -103,7 +105,7 @@ function startGame(){
         localStorage.setItem("setting",JSON.stringify([1,isMuted(),isEng()]));
     }
     else if(getGamemode()==2){
-        window.open('fill_in_the_blank.html', '_self', ''); 
+        window.open('select_table.html', '_self', ''); 
         localStorage.setItem("setting",JSON.stringify([2,isMuted(),isEng()]));
     }
     else{
@@ -216,7 +218,7 @@ function setLanguage(){
     if(ch[6].style.display != "inline-block"){
         let i;
         for(i=0;i<ch.length;i++){
-            if(i>3){
+            if(i>4){
                 ch[i].style.display = "inline-block";
                 eng[i].style.display = "none";
             }
@@ -229,7 +231,7 @@ function setLanguage(){
     else{
         let i;
         for(i=0;i<ch.length;i++){
-            if(i>3){
+            if(i>4){
                 eng[i].style.display = "inline-block";
                 ch[i].style.display = "none";
             }
@@ -300,6 +302,7 @@ class multiplication_table{
         }
         return questions;
     }
+
 }
 
 let table = new multiplication_table(10,10,1);
@@ -323,9 +326,9 @@ function setMCQuestionHTML(n){
         mcoption[i].innerHTML = questions[n][i][2];
     }
 }
-setMCQuestionHTML(0);
 
-function playAgain(){
+
+function playAgain_mc(){
     playSelectSound();
     table = new multiplication_table(10,10,1);
     questions = table.getRandQuestions(10);
@@ -354,7 +357,7 @@ function answerMCQuestion(n){
         alert.classList.remove("alert-danger");
         alert.classList.add("alert-success");
         document.getElementById("alert_wording_eng").innerHTML = "Finish!&nbsp;&nbsp;&nbsp;<button class='btn btn-outline-success' onclick='playAgain()'><i class='fas fa-redo'></i>&nbsp;Play Again</button>";
-        document.getElementById("alert_wording_ch").innerHTML = "完成!&nbsp;&nbsp;&nbsp;<button class='btn btn-outline-success' onclick='playAgain()'><i class='fas fa-redo'></i>&nbsp;再玩一遍</button>";
+        document.getElementById("alert_wording_ch").innerHTML = "完成!&nbsp;&nbsp;&nbsp;<button class='btn btn-outline-success' accesskey='r' onclick='playAgain_mc()'><i class='fas fa-redo'></i>&nbsp;再玩一遍</button>";
     }else{
         alert.classList.add("alert-danger");
         alert.classList.remove("alert-success");
@@ -364,7 +367,7 @@ function answerMCQuestion(n){
     }
 }
 
-function keyevent(){
+function keyevent_mc(){
     console.log(window.event.key);
     if(window.event.key == 1){
         answerMCQuestion(0);
@@ -378,13 +381,48 @@ function keyevent(){
     if(window.event.key == 4){
         answerMCQuestion(3);
     }
-    if(window.event.key == "Enter"){
-        console.log(document.getElementById("alert_wording_eng").innerHTML);
-        if(document.getElementById("alert_wording_eng").innerHTML=='Finish!&nbsp;&nbsp;&nbsp;<button class="btn btn-outline-success" onclick="playAgain()"><i class="fas fa-redo"></i>&nbsp;Play Again</button>'){
-            playAgain();
-        }
+}
+
+function keyevent_blank(){
+    console.log(window.event.key);
+    let btn = document.getElementsByClassName("btn btn-dark shadow rounded");
+    if(window.event.key == 1){
+        btn[0].click();
+    }
+    if(window.event.key == 2){
+        btn[1].click();
+    }
+    if(window.event.key == 3){
+        btn[2].click();
+    }
+    if(window.event.key == 4){
+        btn[3].click();
+    }
+    if(window.event.key == 5){
+        btn[4].click();
+    }
+    if(window.event.key == 6){
+        btn[5].click();
+    }
+    if(window.event.key == 7){
+        btn[6].click();
+    }
+    if(window.event.key == 8){
+        btn[7].click();
+    }
+    if(window.event.key == 9){
+        btn[8].click();
+    }
+    if(window.event.key == "t"){
+        btn[9].click();
+    }
+    if(window.event.key == "r"){
+        btn[10].click();
     }
 }
+
+
+
 
 initSetup();
 setup();

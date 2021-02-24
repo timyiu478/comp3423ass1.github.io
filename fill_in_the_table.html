@@ -13,7 +13,7 @@
 
         <div id="option">
           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#goHomepageModal" onclick="playSelectSound()" accesskey="h"><i class="fas fa-home"></i><span class="eng lang">&nbsp;Home Page</span><span class="ch">&nbsp;主頁</span></button>
-          <button type="button" class="btn btn-info" id="changeGamemodeButton" disabled accesskey="m" style="opacity: 30%;"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Fill in the table</span><span class="ch">&nbsp;填寫表格</span></button>
+          <button type="button" class="btn btn-info" id="changeGamemodeButton" accesskey="m" onclick="changeGamemode();startGame();"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Fill in the table</span><span class="ch">&nbsp;填寫表格</span></button>
           <button type="button" class="btn btn-info" id="toggleSoundButton" onclick="toggleSound()" accesskey="s"><i class="fas fa-volume-down"></i><span class="eng lang">&nbsp;Sound</span><span class="ch">&nbsp;音效</span></button>
           <button type="button" class="btn btn-info" id="setLanguageButton" onclick="setLanguage()" id="setLanguageButton" accesskey="l"><i class="fas fa-language"></i><span class="eng lang">&nbsp;English</span><span class="ch">&nbsp;中文</span></button>      
         </div>

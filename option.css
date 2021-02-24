@@ -14,8 +14,9 @@
 
 #option button span{
     display: none;
-
 }
+
+
 #option button:hover,#option button:hover .lang{
     display: inline-block;
 }

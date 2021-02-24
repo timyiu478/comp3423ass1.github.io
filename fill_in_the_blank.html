@@ -9,43 +9,97 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
   <body>
-
-
         <div id="option">
           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#goHomepageModal" onclick="playSelectSound()" accesskey="h"><i class="fas fa-home"></i><span class="eng lang">&nbsp;Home Page</span><span class="ch">&nbsp;主頁</span></button>
-          <button type="button" class="btn btn-info" id="changeGamemodeButton"  accesskey="m" disabled style="opacity: 30%;"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Fill in the blank</span><span class="ch">&nbsp;填空</span></button>
+          <button type="button" class="btn btn-info" id="changeGamemodeButton"  accesskey="m" onclick="changeGamemode();startGame();"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Fill in the blank</span><span class="ch">&nbsp;填空</span></button>
           <button type="button" class="btn btn-info" id="toggleSoundButton" onclick="toggleSound()" accesskey="s"><i class="fas fa-volume-down"></i><span class="eng lang">&nbsp;Sound</span><span class="ch">&nbsp;音效</span></button>
           <button type="button" class="btn btn-info" id="setLanguageButton" onclick="setLanguage()" id="setLanguageButton" accesskey="l"><i class="fas fa-language"></i><span class="eng lang">&nbsp;English</span><span class="ch">&nbsp;中文</span></button>      
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#aboutModal" id="about" onclick="playSelectSound()" accesskey="i"><i class="fas fa-info"></i><span class="eng lang">&nbsp;About</span><span class="ch">&nbsp;關於</span></button>
         </div>
-         
         <div id="content">
-          
-            <div class="modal fade" id="goHomepageModal" tabindex="-1" aria-labelledby="goHomepageModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="goHomepageModalLabel"><span class="eng">Go homepage</span><span class="ch">轉到首頁</span></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
-                            </div>
-                        <div class="modal-body">
-                            <span class="eng">Are you really want to go homepage?</span><span class="ch">你真的要轉到首頁嗎?</span>
+
+            <div class="mx-auto col-9" style="text-align: center;">
+                <h1 class="display-6"><span class="eng">Table </span><span class="ch">表格 </span>:&nbsp;<span id="table_number" style="width: 20px; padding: 5px;">1</span></h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5% ;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">1</span><input type="text" class="form-control btn-outline-danger" style="border: 2px solid red;"></p>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="playSelectSound()"><span class="eng">No</span><span class="ch">否</span></button>
-                            <button type="button" class="btn btn-warning" onclick="goHomepage()"><span class="eng">Yes</span><span class="ch">是</span></button>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5%;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">2</span><input type="text" class="form-control"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5% ;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">3</span><input type="text" class="form-control"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5%;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">4</span><input type="text" class="form-control"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5%;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">5</span><input type="text" class="form-control"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5% ;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">6</span><input type="text" class="form-control"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5%;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">7</span><input type="text" class="form-control"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5% ;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">8</span><input type="text" class="form-control"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5%;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">9</span><input type="text" class="form-control"></p>
+                        </div>
+                        <div class="col-sm">
+                            <p class="shadow bg-dark text-light rounded" style="padding: 5%; margin: 5%;"><span class="n1 h1">1</span > <span class="h1">x</span> <span class="n2 h1">10</span><input type="text" class="form-control"></p>
                         </div>
                     </div>
                 </div>
+                <button class="btn btn-outline-dark shadow rounded "  onclick="submit_blank()" style="padding: 3%; margin: 5%; min-width: 17%;"><i class="far fa-paper-plane"></i>&nbsp;<span class="eng lang">Submit</span><span class="ch"></span>提交</span></button>
+                <button class='btn btn-outline-success shadow rounded ' onclick='playAgain_blank()' style="padding: 3%; margin: 5%; min-width: 17%;"><i class='fas fa-redo'></i>&nbsp;再玩一遍</button>
             </div>
+
+
+            <div class="modal fade" id="goHomepageModal" tabindex="-1" aria-labelledby="goHomepageModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="goHomepageModalLabel"><span class="eng">Go homepage</span><span class="ch">轉到首頁</span></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
+                                </div>
+                            <div class="modal-body">
+                                <span class="eng">Are you really want to go homepage?</span><span class="ch">你真的要轉到首頁嗎?</span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="playSelectSound()"><span class="eng">No</span><span class="ch">否</span></button>
+                                <button type="button" class="btn btn-warning" onclick="goHomepage()"><span class="eng">Yes</span><span class="ch">是</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="aboutModalLabel"><span class="eng">About</span><span class="ch">關於</span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span class="eng">This is a game for Learning the multiplication tables<hr><strong>Short Keys:</strong><br>Alt+h: Go to Homepage<br>Alt+m: Change gamemode<br>Alt+s: On/Off sound<br>Alt+l: Change language<br>Alt+i: About<br>Alt+r: Play again<br>Enter: Start game<br>Number Key: Option [number key] (t: Option 10)<br>r: Option random<hr><strong>Enjoy the game!</strong><hr><small>Copyright 2021 by Yiu Kam Wing</small></span>
+                        <span class="ch">這是一個學習乘法表的遊戲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr><strong>快捷鍵:</strong><br>Alt+h: 去首頁<br>Alt+m: 改變遊戲模式<br>Alt+s: 開/關聲音<br>Alt+l: 變更語言<br>Alt+i: 關於<br>Enter: 開始遊戲/再玩一遍<br>數字鍵: 選項 [數字鍵]<br>r: 隨機選項<hr><strong>玩的開心！</strong><hr><small>姚錦榮 版權所有 2021</small></span>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" data-bs-dismiss="modal" class="btn btn-warning"><span class="eng">OK</span><span class="ch">好的</span></button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
         </div>
-          
-        2
-   
+
         <script src="fill_in_the_blank.js"></script>
         <script src="game.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-        <audio id="select_click" src="select_click.wav"></audio>    
-    </body>
-
-    
+        <audio id="select_click" src="select_click.wav"></audio>   
+  </body>
 </html>

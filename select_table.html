@@ -3,38 +3,41 @@
   <head>
         <title>Multiplication Game</title>
         <meta charset="utf-8">
-        <link href="multiple_choice.css" rel="stylesheet">
         <link href="option.css" rel="stylesheet">
         <link href="game.css" rel="stylesheet">
         <link href="fontawesome-free-5.15.2-web/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
-  <body onkeydown="keyevent_mc()">
+  <body onkeydown="keyevent_blank()">
 
 
         <div id="option">
           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#goHomepageModal" onclick="playSelectSound()" accesskey="h"><i class="fas fa-home"></i><span class="eng lang">&nbsp;Home Page</span><span class="ch">&nbsp;主頁</span></button>
-          <button type="button" class="btn btn-info" id="changeGamemodeButton" accesskey="m" onclick="changeGamemode();startGame();"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Multiple Choice</span><span class="ch">&nbsp;多項選擇</span></button>
+          <button type="button" class="btn btn-info" id="changeGamemodeButton"  accesskey="m" onclick="changeGamemode();startGame();"><i class="fas fa-gamepad"></i><span class="eng lang">&nbsp;Fill in the blank</span><span class="ch">&nbsp;填空</span></button>
           <button type="button" class="btn btn-info" id="toggleSoundButton" onclick="toggleSound()" accesskey="s"><i class="fas fa-volume-down"></i><span class="eng lang">&nbsp;Sound</span><span class="ch">&nbsp;音效</span></button>
           <button type="button" class="btn btn-info" id="setLanguageButton" onclick="setLanguage()" id="setLanguageButton" accesskey="l"><i class="fas fa-language"></i><span class="eng lang">&nbsp;English</span><span class="ch">&nbsp;中文</span></button>      
-          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#aboutModal" id="about"  onclick="playSelectSound()" accesskey="i"><i class="fas fa-info"></i><span class="eng lang">&nbsp;About</span><span class="ch">&nbsp;關於</span></button>
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#aboutModal" id="about" onclick="playSelectSound()" accesskey="i"><i class="fas fa-info"></i><span class="eng lang">&nbsp;About</span><span class="ch">&nbsp;關於</span></button>
         </div>
          
         <div id="content">
-
-            <div class="mx-auto col-6" style="text-align: center;">
-                <h1 class="display-6"><span class="eng">Question </span><span class="ch">問題 </span>:&nbsp;<span id="question_number" style="width: 20px; padding: 5px;">1</span></h1>
-
-                <h1 class="display-1 shadow bg-dark text-light rounded" style="padding: 5%;"><span id="n1"></span> x <span id="n2"></span></h1>
-                <div class="alert alert-danger" role="alert" style="margin-top: 20px; opacity:0;">
-                    <span class="h4 eng" id="alert_wording_eng">Incorrect!&nbsp;&nbsp;&nbsp;Please try again.</span><span class="ch" id="alert_wording_ch">錯誤!&nbsp;&nbsp;&nbsp;請再試一次。</span>
-                  </div>
-                <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" onclick="answerMCQuestion(0)"><span class="h3 mcoption"></span></button>
-                <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" onclick="answerMCQuestion(1)"><span class="h3 mcoption"></span></button>
-                <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" onclick="answerMCQuestion(2)"><span class="h3 mcoption"></span></button>
-                <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" onclick="answerMCQuestion(3)"><span class="h3 mcoption"></span></button>
-            </div>
-
+          
+            <div class="mx-auto col-6" style="text-align: center;" id="table_selection">
+                    <h1 class="display-6"><span class="eng">Select Table</span><span class="ch">選擇 表格</span></h1>
+                    <form action="table.html" method="GET" id="get_table_form">
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="1" onclick="playSelectSound()"><span class="h3">1</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="2" onclick="playSelectSound()"><span class="h3">2</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="3" onclick="playSelectSound()"><span class="h3">3</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="4" onclick="playSelectSound()"><span class="h3">4</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="5" onclick="playSelectSound()"><span class="h3">5</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="6" onclick="playSelectSound()"><span class="h3">6</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="7" onclick="playSelectSound()"><span class="h3">7</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="8" onclick="playSelectSound()"><span class="h3">8</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="9" onclick="playSelectSound()"><span class="h3">9</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="10" onclick="playSelectSound()"><span class="h3">10</span></button>
+                        <button class="btn btn-dark shadow rounded " style="padding: 5%;margin: 1.5% 3.5%; min-width: 15%;" name="table" value="random" onclick="playSelectSound()"><span class="h3"><i class="fas fa-dice"></i></span></button>
+                    </form>
+                    
+            </div>      
 
             <div class="modal fade" id="goHomepageModal" tabindex="-1" aria-labelledby="goHomepageModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -44,7 +47,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
                             </div>
                         <div class="modal-body">
-                            <span class="eng">Are you really want to go homepage?<br>Your game progress will be lost.</span><span class="ch">你真的要轉到首頁嗎?<br>您的遊戲進度將會丟失。</span>
+                            <span class="eng">Are you really want to go homepage?</span><span class="ch">你真的要轉到首頁嗎?</span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="playSelectSound()"><span class="eng">No</span><span class="ch">否</span></button>
@@ -61,7 +64,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="playSelectSound()"></button>
                     </div>
                     <div class="modal-body">
-                      <span class="eng">This is a game for Learning the multiplication tables<hr><strong>Short Keys:</strong><br>Alt+h: Go to Homepage<br>Alt+m: Change gamemode<br>Alt+s: On/Off sound<br>Alt+l: Change language<br>Alt+i: About<br>Alt+r: Play again<br>Enter: Start game<br>Number Key: Option [number key] (t: Option 10)<br>r: Option random<hr><strong>Enjoy the game!</strong><hr><small>Copyright 2021 by Yiu Kam Wing</small></span>
+                        <span class="eng">This is a game for Learning the multiplication tables<hr><strong>Short Keys:</strong><br>Alt+h: Go to Homepage<br>Alt+m: Change gamemode<br>Alt+s: On/Off sound<br>Alt+l: Change language<br>Alt+i: About<br>Alt+r: Play again<br>Enter: Start game<br>Number Key: Option [number key] (t: Option 10)<br>r: Option random<hr><strong>Enjoy the game!</strong><hr><small>Copyright 2021 by Yiu Kam Wing</small></span>
                       <span class="ch">這是一個學習乘法表的遊戲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr><strong>快捷鍵:</strong><br>Alt+h: 去首頁<br>Alt+m: 改變遊戲模式<br>Alt+s: 開/關聲音<br>Alt+l: 變更語言<br>Alt+i: 關於<br>Enter: 開始遊戲/再玩一遍<br>數字鍵: 選項 [數字鍵]<br>r: 隨機選項<hr><strong>玩的開心！</strong><hr><small>姚錦榮 版權所有 2021</small></span>
                     </div>
                     <div class="modal-footer">
@@ -73,7 +76,8 @@
         </div>
           
         
- 
+        
+
         <script src="game.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
         <audio id="select_click" src="select_click.wav"></audio>    
