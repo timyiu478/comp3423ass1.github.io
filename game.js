@@ -308,7 +308,9 @@ class multiplication_table{
 
 }
 
-
+function startTutorial(){
+    window.open('tutorial.html', '_self'); 
+}
 
 initSetup();
 setup();
