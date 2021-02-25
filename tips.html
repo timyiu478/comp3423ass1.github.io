@@ -9,7 +9,7 @@
         <link href="fontawesome-free-5.15.2-web/fontawesome-free-5.15.2-web/css/all.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
-  <body onkeydown="keyevent_table()">
+  <body>
     
         <div id="option">
             <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#goHomepageModal" onclick="playSelectSound()" accesskey="h"><i class="fas fa-home"></i><span class="eng lang">&nbsp;Home Page</span><span class="ch">&nbsp;主頁</span></button>
@@ -22,37 +22,80 @@
         <div id="content">
 
             <div class="mx-auto col-7" style="text-align: center;">
-                <h1 class="display-6"><span class="eng">Multiplication Table</span><span class="ch">乘法表</span></h1>
-                <table class="table table-dark table-striped table-bordered">
+                <h1 class="display-6"   id="n1_x_n2"><strong class="n1">1</strong> X <strong class="n2">2</strong> = <strong class="n1n2_answer">2</strong></h1>
+                <br>
+                <p class="h2"><strong class="eng">Tip 1: Order Does Not Matter</strong><strong class="ch">提示 1: 順序不重要</strong> </p>
+                
+                <p class="h5"><strong>A</strong> X <strong>B</strong> = <strong>B</strong> X <strong>A</strong></p>
+                <p class="h5"><span class="eng">Example: </span><span class="ch">示例：</span><strong class="n1">1</strong> X <strong class="n2">2</strong> = <strong class="n1n2_answer">2</strong>, and   <strong class="n2">2</strong> X <strong class="n1">1</strong> = <strong class="n1n2_answer">2</strong></p>
+                <p class="h5"><span class="eng">So, don't memorize both "<strong class="n1">1</strong> X <strong class="n2">2</strong>" and "<strong class="n2">1</strong> X <strong class="n1">2</strong>", just memorize that "a <strong class="n1">1</strong> and a <strong class="n2">2</strong> make <strong class="n1n2_answer">2</strong>" when multiplied.</span></p>
+                <table class="table table-dark table-bordered" id="table1">
                     <tbody>
                         <tr>
                             <th scope="col" class="lead"><i class="fas fa-times fa-lg"></i></th>
-                            <th scope="col" class="lead">1</th>
-                            <th scope="col" class="lead">2</th>
-                            <th scope="col" class="lead">3</th>
-                            <th scope="col" class="lead">4</th>
-                            <th scope="col" class="lead">5</th>
-                            <th scope="col" class="lead">6</th>
-                            <th scope="col" class="lead">7</th>
-                            <th scope="col" class="lead">8</th>
-                            <th scope="col" class="lead">9</th>
-                            <th scope="col" class="lead">10</th>
+                            <th scope="col" class="lead colnum">1</th>
+                            <th scope="col" class="lead colnum">2</th>
+                            <th scope="col" class="lead colnum">3</th>
+                            <th scope="col" class="lead colnum">4</th>
+                            <th scope="col" class="lead colnum">5</th>
+                            <th scope="col" class="lead colnum">6</th>
+                            <th scope="col" class="lead colnum">7</th>
+                            <th scope="col" class="lead colnum">8</th>
+                            <th scope="col" class="lead colnum">9</th>
+                            <th scope="col" class="lead colnum">10</th>
                         </tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">1</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">2</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">3</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">4</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">5</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">6</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">7</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">8</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">9</th></tr>
-                        <tr class="table_row lead"><th style="width: 8%;" scope="row">10</th></tr>
-                    </tbody>
-                  
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">1</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">2</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">3</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">4</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">5</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">6</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">7</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">8</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">9</th></tr>
+                        <tr class="table1_row lead"><th style="width: 8%;" scope="row">10</th></tr>
+                    </tbody>        
                 </table>
-                <button class="btn btn-outline-dark shadow rounded "  onclick="submit_table()" style="padding: 3%; margin: 5%; min-width: 17%;"><i class="far fa-paper-plane"></i>&nbsp;<span class="eng lang">Submit</span><span class="ch">提交</span></button>
-                <button class='btn btn-outline-success shadow rounded ' accesskey="r" onclick='playAgain_table()' style="padding: 3%; margin: 5%; min-width: 17%;"><i class='fas fa-redo'></i>&nbsp;<span class="eng lang">Play again</span><span class="ch">再玩一遍</span></button>
+                <br>
+                <p class="h2"><strong class="eng">Tip 2: Memorization</strong><strong class="ch">提示2：記憶</strong></p>
+                <p class="h5"><span class="eng">Train your memory!</span><span class="ch">訓練你的記憶！</span></p>
+                <p class="h5"><span class="eng">When you can simply remember the multiplication tables,your life will be a lot easier.</span><span class="ch">當您記得乘法表時，您的生活就會輕鬆很多。</span></p>
+                <p class="h5"><span class="eng">It is too hard to memorize the whole table at once. So you can learn it in "chunks".</span><span class="ch">這實在是太難能一次記住整個表。所以，你可以學習它在“塊”。</span></p>
+                <p class="h5"><strong class="eng"><span class="text-info">Blue chunk</span> -> <span class="text-success">Green Chunk</span> -> <span class="text-danger">Red Chunk</span> -> <span class="text-warning">Yellow Chunk</span></strong><span class="ch"><span class="text-info">藍塊</span> -> <span class="text-success">綠塊</span> -> <span class="text-danger">紅塊</span> -> <span class="text-warning">黃塊</span></strong></span></p>
+                <table class="table table-dark table-bordered" id="table2">
+                    <tbody>
+                        <tr>
+                            <th scope="col" class="lead"><i class="fas fa-times fa-lg"></i></th>
+                            <th scope="col" class="lead colnum">1</th>
+                            <th scope="col" class="lead colnum">2</th>
+                            <th scope="col" class="lead colnum">3</th>
+                            <th scope="col" class="lead colnum">4</th>
+                            <th scope="col" class="lead colnum">5</th>
+                            <th scope="col" class="lead colnum">6</th>
+                            <th scope="col" class="lead colnum">7</th>
+                            <th scope="col" class="lead colnum">8</th>
+                            <th scope="col" class="lead colnum">9</th>
+                            <th scope="col" class="lead colnum">10</th>
+                        </tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">1</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">2</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">3</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">4</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">5</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">6</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">7</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">8</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">9</th></tr>
+                        <tr class="table2_row lead"><th style="width: 8%;" scope="row">10</th></tr>
+                    </tbody>        
+                </table>
+                <br>
+                <p class="h2"><strong class="eng">Tip 3: Pratice</strong><strong class="ch">提示3：練習</strong></p>
+                <p class="h5"><span class="eng">Practice is the most effective way to train your memory.</span><span class="ch">練習是訓練記憶的最有效方法。</span></p>
+                <p class="h5"><span class="eng">In this website, we provide three gamemodes to help you training your memory.</span><span class="ch">在此網站上，我們提供了三種遊戲模式來幫助您訓練自己的記憶力。</span></p>
+                <p class="h5"><span class="eng">You should depends on your mastery of multiplication to select different gamemodes.</span><span class="ch">您應該依靠對乘法的掌握來選擇不同的遊戲模式。</span></p>
+                <p class="h5"><strong class="eng">My recommendation: multiple choice -> fill in the blank -> fill in the table</strong><strong class="ch">我的建議：多項選擇 -> 填空 -> 填寫表格</strong></p>
+                <br>
             </div>
                
             <div class="modal fade" id="gamemodeModal" tabindex="-1" aria-labelledby="gamemodeModalLabel" aria-hidden="true">
@@ -112,8 +155,7 @@
    
 
         <script src="game.js"></script>
-        <script src="fill_in_the_table.js"></script>
-        <script src="jquery-3.5.1.min.js"></script>
+        <script src="tips.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
         <audio id="select_click" src="select_click.wav"></audio>    
     </body>

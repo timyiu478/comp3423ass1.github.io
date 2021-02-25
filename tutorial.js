@@ -4,7 +4,7 @@ function getTable(){
     let  i,j;
     for(i=0;i<table_row.length;i++){
         for(j=0;j<10;j++){
-            table_row[i].innerHTML +=`<th class="bg-light text-dark" onmouseover="changeColor(${i},${j})" onclick="getTips(${i},${j})" style="width: 8%;cursor: pointer;" ><span class="user_input" style="text-align:center; ">${(i+1) * (j+1)}</span></th>`;
+            table_row[i].innerHTML +=`<th class="bg-light text-dark"  onmouseover="changeColor(${i},${j})" onclick="getTips(${i},${j})" style="width: 8%;cursor: pointer;" ><span class="user_input" style="text-align:center; ">${(i+1) * (j+1)}</span></th>`;
         }
     } 
 }
@@ -56,12 +56,17 @@ function changeColor(row,col){
     }
     colnum[col].classList.add("bg-info");
     colnum[col].classList.add("text-dark");
+
+    
 }
 
 
 
 function getTips(row,col){
     playSelectSound();
+    localStorage.setItem("row",JSON.stringify(row));
+    localStorage.setItem("col",JSON.stringify(col));
+    window.open('tips.html', '_self', ''); 
 }
 
 getTable();
