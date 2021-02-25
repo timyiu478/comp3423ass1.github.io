@@ -50,7 +50,7 @@ function answerMCQuestion(n){
         alert.style.opacity = "100%";
         alert.classList.remove("alert-danger");
         alert.classList.add("alert-success");
-        document.getElementById("alert_wording_eng").innerHTML = "Finish!&nbsp;&nbsp;&nbsp;<button class='btn btn-outline-success' onclick='playAgain()'><i class='fas fa-redo'></i>&nbsp;Play Again</button>";
+        document.getElementById("alert_wording_eng").innerHTML = "Finish!&nbsp;&nbsp;&nbsp;<button class='btn btn-outline-success' onclick='playAgain_mc()'><i class='fas fa-redo'></i>&nbsp;Play Again</button>";
         document.getElementById("alert_wording_ch").innerHTML = "完成!&nbsp;&nbsp;&nbsp;<button class='btn btn-outline-success' accesskey='r' onclick='playAgain_mc()'><i class='fas fa-redo'></i>&nbsp;再玩一遍</button>";
     }else{
         alert.classList.add("alert-danger");
