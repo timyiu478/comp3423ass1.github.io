@@ -175,7 +175,7 @@ function setGamemode(n){
         childNodes[2].innerHTML == "&nbsp;多項選擇";
         setting[0] = 1;
     }
-    localStorage.setItem("setting",JSON.stringify(setting));
+    localStorage.setItem("setting",JSON.stringify(setting)); 
 }
 
 function toggleSound(){
@@ -225,7 +225,7 @@ function isEng(){
 
 function setLanguage(){
     playSelectSound();
-    let setting = localStorage.getItem("setting");
+    let setting = JSON.parse(localStorage.getItem("setting"));
     let ch = document.getElementsByClassName("ch");
     let eng = document.getElementsByClassName("eng");
     if(ch[6].style.display != "inline-block"){
@@ -324,5 +324,7 @@ function startTutorial(){
     window.open('tutorial.html', '_self'); 
 }
 
-initSetup();
-setup();
+window.onload = function(){
+    initSetup();
+    setup();
+};
