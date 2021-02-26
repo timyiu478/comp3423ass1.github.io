@@ -158,22 +158,29 @@ function getGamemode(){
 function setGamemode(n){
     let setGamemodeButton = document.getElementById("changeGamemodeButton");
     let childNodes = setGamemodeButton.childNodes;
+    let setting = JSON.parse(localStorage.getItem("setting"));
+    
     if(n==3){
         childNodes[1].innerHTML == "&nbsp;Fill in the table";
         childNodes[2].innerHTML == "&nbsp;填寫表格";
+        setting[0] = 3;
     }
     else if(n==2){
         childNodes[1].innerHTML == "&nbsp;Fill in the blank";
         childNodes[2].innerHTML == "&nbsp;填空";
+        setting[0] = 2;
     }
     else{
         childNodes[1].innerHTML == "&nbsp;Multiple Choice";
         childNodes[2].innerHTML == "&nbsp;多項選擇";
+        setting[0] = 1;
     }
+    localStorage.setItem("setting",JSON.stringify(setting));
 }
 
 function toggleSound(){
     playSelectSound();
+    let setting = JSON.parse(localStorage.getItem("setting"));
     let childNodes = document.getElementById("toggleSoundButton").childNodes;
 
     if(document.getElementById("toggleSoundButton").classList.contains("muted")){
@@ -184,6 +191,7 @@ function toggleSound(){
         childNodes[1].innerHTML = "&nbsp;Sound";  
         childNodes[2].innerHTML = "&nbsp;音效"; 
         
+        setting[1] = 1;
     }else{
         document.getElementById("toggleSoundButton").firstChild.classList.remove("fa-volume-down");
         document.getElementById("toggleSoundButton").firstChild.classList.add("fa-volume-mute");
@@ -191,8 +199,10 @@ function toggleSound(){
 
         childNodes[1].innerHTML = "&nbsp;Muted";  
         childNodes[2].innerHTML = "&nbsp;靜音"; 
-        
+
+        setting[1] = 0;  
     }
+    localStorage.setItem("setting",JSON.stringify(setting));
 }
 
 function isMuted(){
@@ -215,7 +225,7 @@ function isEng(){
 
 function setLanguage(){
     playSelectSound();
-    
+    let setting = localStorage.getItem("setting");
     let ch = document.getElementsByClassName("ch");
     let eng = document.getElementsByClassName("eng");
     if(ch[6].style.display != "inline-block"){
@@ -230,6 +240,7 @@ function setLanguage(){
                 eng[i].classList.remove("lang");
             }
         }
+        setting[2] = 1;
     }
     else{
         let i;
@@ -243,8 +254,9 @@ function setLanguage(){
                 ch[i].classList.remove("lang");
             }
         }
+        setting[2] = 0;
     }
-
+    localStorage.setItem("setting",JSON.stringify(setting));
 }
 
 
