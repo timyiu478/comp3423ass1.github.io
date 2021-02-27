@@ -7,7 +7,13 @@ function getTable_blank(){
     let url = new URL(url_string);
     let number = url.searchParams.get("table");
     let table_number = document.getElementById("table_number");
-    table_number.innerHTML = number;
+    let setting = JSON.parse(localStorage.getItem("setting"));
+    if(number=="random" && setting[2]==1){
+        table_number.innerHTML = "隨機";
+    }else{
+        table_number.innerHTML = number;
+    }
+
     console.log(number);
     let n1 = document.getElementsByClassName("n1");
     let n2 = document.getElementsByClassName("n2");
