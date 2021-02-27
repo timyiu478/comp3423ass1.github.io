@@ -321,6 +321,7 @@ class multiplication_table{
 }
 
 function startTutorial(){
+    playSelectSound();
     window.open('tutorial.html', '_self'); 
 }
 
